@@ -1,15 +1,11 @@
 var cpuDataSets = [];
-var tempTimeLine = new TimeSeries();
 var windowGap = 40;
 
 $(function() {
 	$("#status").text("");
-    document.getElementById('tempChart').width  = window.innerWidth-windowGap;
-    document.getElementById('cpu0').width  = window.innerWidth-windowGap;
-	get_temp();
+	document.getElementById('cpu0').width  = window.innerWidth-windowGap;
 	get_cpu_use();
 	setInterval("get_cpu_use()", 1000);
-	setInterval("get_temp()", 5000);
 	var timeline = new SmoothieChart(
   	{
 		millisPerPixel: 80,
@@ -19,13 +15,6 @@ $(function() {
         		verticalSections: 4 
      		}
   	});
-  	timeline.addTimeSeries(tempTimeLine,
-    {
-        strokeStyle: 'rgba(0, 255, 0, 1)',
-        fillStyle: 'rgba(0, 255, 0, 0.2)',
-        lineWidth: 3
-    });
-  	timeline.streamTo(document.getElementById('tempChart'), 1000);
 });
 
 function get_cpu_use()
@@ -70,28 +59,6 @@ function get_cpu_use()
                 }
             });
         }
-	});
-}
-
-function get_temp()
-{
-	$.ajax({
-        	url: "temp.api",
-        	type: "post",
-    }).done(function(data)
-    {
-            if (data!=="?")
-            {
-                $("#temp").text(data + "\u00B0C");
-                tempTimeLine.append(new Date().getTime(), data);
-            }
-            else
-            {
-                $("#temp").text("");
-                $("#tempChart").hide();
-                $("#tempLabel").hide();
-                clearInterval(tempInterval);
-            }
 	});
 }
 
