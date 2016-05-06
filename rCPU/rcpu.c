@@ -9,7 +9,7 @@
 // embedded resource files
 #include "code.h"
 #include "index.h"
-#include "jquery-2-1-0-min.h"
+#include "jquery-2-2-3-min.h"
 #include "smoothie.h"
 
 void* polling_thread(void *args);
