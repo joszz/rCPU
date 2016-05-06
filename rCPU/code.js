@@ -1,5 +1,5 @@
 var cpuDataSets = [];
-var windowGap = 40;
+var windowGap = 0;
 
 $(function () {
     $("#status").text("");
@@ -18,7 +18,7 @@ $(function () {
   	});
 
     document.addEventListener("visibilitychange", function () {
-        window.dispatchEvent(new Event('resize'));
+        window.dispatchEvent(new Event("resize"));
     });
 });
 
