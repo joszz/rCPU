@@ -197,8 +197,8 @@ void send_file_response(struct hitArgs *args, char *path, char *request_body, in
     else if (path_ends_with(path, "jquery-2-2-3-min.js"))
     {
         string_add(response, "text/javascript");
-        write_header(args->socketfd, string_chars(response), jquery_2_1_0_min_js_len);
-        write(args->socketfd, jquery_2_1_0_min_js, jquery_2_1_0_min_js_len);
+        write_header(args->socketfd, string_chars(response), jquery_2_2_3_min_js_len);
+        write(args->socketfd, jquery_2_2_3_min_js, jquery_2_2_3_min_js_len);
     }
     else
     {
