@@ -1,19 +1,18 @@
 var cpuDataSets = [];
-var windowGap = 40;
 
 $(function() {
 	$("#status").text("");
-	document.getElementById('cpu0').width  = window.innerWidth-windowGap;
 	get_cpu_use();
 	setInterval("get_cpu_use()", 1000);
+
 	var timeline = new SmoothieChart(
   	{
 		millisPerPixel: 80,
-     		grid:
-     		{
-        		strokeStyle: '#555555',
-        		verticalSections: 4 
-     		}
+     	grid:
+     	{
+        	strokeStyle: '#555555',
+        	verticalSections: 4 
+     	}
   	});
 });
 
@@ -33,11 +32,6 @@ function get_cpu_use()
         	for (var n=cpu_info.length-1; n>=0; n--)
             {
                 cpuDataSets.push(new TimeSeries());
-                if (n>0)
-                {
-                    $("#cpu0").after("<div style=\"height:2px\">&nbsp;</div><canvas id=\"cpu" + n +"\" height=\"100\" />");
-                    document.getElementById('cpu'+n).width  = window.innerWidth-windowGap;
-                }
             }
     	}
     	for (var n=0; n<cpu_info.length; n++)
@@ -48,17 +42,6 @@ function get_cpu_use()
         		initChart(n);
         	}
       	}
-        if (needs_init == 1)
-        {
-            $(window).resize(function()
-            {
-                document.getElementById('tempChart').width  = window.innerWidth-windowGap;
-                for (var n=0; n<cpu_info.length; n++)
-                {
-                    document.getElementById('cpu'+n).width  = window.innerWidth-windowGap;
-                }
-            });
-        }
 	});
 }
 
@@ -98,5 +81,5 @@ function initChart(cpuId)
      }
   });
   timeline.addTimeSeries(cpuDataSets[cpuId], seriesOptions);
-  timeline.streamTo(document.getElementById('cpu'+cpuId), 1000);
+  timeline.streamTo($('#cpu'+cpuId), 1000);
 }
