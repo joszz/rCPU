@@ -81,5 +81,5 @@ function initChart(cpuId)
      }
   });
   timeline.addTimeSeries(cpuDataSets[cpuId], seriesOptions);
-  timeline.streamTo($('#cpu'+cpuId), 1000);
+  timeline.streamTo($('#cpu'+cpuId)[0], 1000);
 }
