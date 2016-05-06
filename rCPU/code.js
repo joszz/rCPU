@@ -1,9 +1,7 @@
 var cpuDataSets = [];
-var windowGap = 40;
 
 $(function () {
     $("#status").text("");
-    document.getElementById('cpu0').width = window.innerWidth - windowGap;
     get_cpu_use();
     setInterval("get_cpu_use()", 1000);
 
@@ -31,8 +29,7 @@ function get_cpu_use() {
             for (var n = cpu_info.length - 1; n >= 0; n--) {
                 cpuDataSets.push(new TimeSeries());
                 if (n > 0) {
-                    $("#cpu0").after("<div style=\"height:2px\">&nbsp;</div><canvas id=\"cpu" + n + "\" height=\"100\" />");
-                    document.getElementById('cpu' + n).width = window.innerWidth - windowGap;
+                    $("#cpu0").after("<canvas id=\"cpu" + n + "\" height=\"100\" />");
                 }
             }
         }
@@ -42,7 +39,6 @@ function get_cpu_use() {
                 initChart(n);
             }
         }
-
     });
 }
 
