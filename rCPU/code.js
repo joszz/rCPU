@@ -42,14 +42,7 @@ function get_cpu_use() {
                 initChart(n);
             }
         }
-        if (needs_init == 1) {
-            $(window).resize(function () {
-                document.getElementById('tempChart').width = window.innerWidth - windowGap;
-                for (var n = 0; n < cpu_info.length; n++) {
-                    document.getElementById('cpu' + n).width = window.innerWidth - windowGap;
-                }
-            });
-        }
+
     });
 }
 
