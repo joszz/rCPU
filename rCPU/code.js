@@ -3,7 +3,7 @@ var windowGap = 40;
 
 $(function () {
     $("#status").text("");
-    document.getElementById('cpu0').width = window.innerWidth - windowGap;
+    document.getElementById('cpu0').width = window.outerWidth - windowGap;
     get_cpu_use();
     setInterval("get_cpu_use()", 1000);
 
@@ -16,6 +16,10 @@ $(function () {
      	    verticalSections: 4
      	}
   	});
+
+    document.addEventListener("visibilitychange", function () {
+        window.dispatchEvent(new Event('resize'));
+    });
 });
 
 function get_cpu_use() {
@@ -32,7 +36,7 @@ function get_cpu_use() {
                 cpuDataSets.push(new TimeSeries());
                 if (n > 0) {
                     $("#cpu0").after("<canvas id=\"cpu" + n + "\" height=\"100\" />");
-                    document.getElementById('cpu' + n).width = window.innerWidth - windowGap;
+                    document.getElementById('cpu' + n).width = window.outerWidth - windowGap;
                 }
             }
         }
@@ -44,9 +48,8 @@ function get_cpu_use() {
         }
         if (needs_init == 1) {
             $(window).resize(function () {
-                document.getElementById('tempChart').width = window.innerWidth - windowGap;
                 for (var n = 0; n < cpu_info.length; n++) {
-                    document.getElementById('cpu' + n).width = window.innerWidth - windowGap;
+                    document.getElementById('cpu' + n).width = window.outerWidth - windowGap;
                 }
             });
         }
