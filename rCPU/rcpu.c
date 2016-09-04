@@ -9,7 +9,7 @@
 // embedded resource files
 #include "code.h"
 #include "index.h"
-#include "jquery-3-0-0-min.h"
+#include "jquery-3-1-0-min.h"
 #include "smoothie.h"
 
 void* polling_thread(void *args);
@@ -194,11 +194,11 @@ void send_file_response(struct hitArgs *args, char *path, char *request_body, in
         write_header(args->socketfd, string_chars(response), smoothie_js_len);
         write(args->socketfd, smoothie_js, smoothie_js_len);
     }
-    else if (path_ends_with(path, "jquery-3-0-0-min.js"))
+    else if (path_ends_with(path, "jquery-3-1-0-min.js"))
     {
         string_add(response, "text/javascript");
-        write_header(args->socketfd, string_chars(response), jquery_3_0_0_min_js_len);
-        write(args->socketfd, jquery_3_0_0_min_js, jquery_3_0_0_min_js_len);
+        write_header(args->socketfd, string_chars(response), jquery_3_1_0_min_js_len);
+        write(args->socketfd, jquery_3_1_0_min_js, jquery_3_1_0_min_js_len);
     }
     else
     {
