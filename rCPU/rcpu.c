@@ -186,7 +186,7 @@ void send_file_response(struct hitArgs *args, char *path, char *request_body, in
     {
         string_add(response, "text/javascript");
         write_header(args->socketfd, string_chars(response), code_min_js_len);
-        write(args->socketfd, code_js, code_min_js_len);
+        write(args->socketfd, code_min_js, code_min_js_len);
     }
     else if (path_ends_with(path, "smoothie-min.js"))
     {
