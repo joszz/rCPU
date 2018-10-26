@@ -7,10 +7,10 @@
 #include "dwebsvr.h"
 
 // embedded resource files
-#include "code.h"
+#include "code-min.h"
 #include "index.h"
 #include "jquery-3-3-1-min.h"
-#include "smoothie.h"
+#include "smoothie-min.h"
 
 void* polling_thread(void *args);
 void send_response(struct hitArgs *args, char*, char*, http_verb);
@@ -182,13 +182,13 @@ void send_file_response(struct hitArgs *args, char *path, char *request_body, in
         write_header(args->socketfd, string_chars(response), index_html_len);
         write(args->socketfd, index_html, index_html_len);
     }
-    else if (path_ends_with(path, "code.js"))
+    else if (path_ends_with(path, "code-min.js"))
     {
         string_add(response, "text/javascript");
         write_header(args->socketfd, string_chars(response), code_js_len);
         write(args->socketfd, code_js, code_js_len);
     }
-    else if (path_ends_with(path, "smoothie.js"))
+    else if (path_ends_with(path, "smoothie-min.js"))
     {
         string_add(response, "text/javascript");
         write_header(args->socketfd, string_chars(response), smoothie_js_len);

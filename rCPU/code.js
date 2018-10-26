@@ -3,9 +3,9 @@ var windowGap = 0;
 
 $(function () {
     $("#status").text("");
-    document.getElementById('cpu0').width = window.innerWidth - windowGap;
+    $("cpu0")[0].width = window.innerWidth - windowGap;
     get_cpu_use();
-    setInterval("get_cpu_use()", 1000);
+    setInterval(get_cpu_use, 1000);
 
     var timeline = new SmoothieChart(
   	{
@@ -36,7 +36,7 @@ function get_cpu_use() {
                 cpuDataSets.push(new TimeSeries());
                 if (n > 0) {
                     $("#cpu0").after("<canvas id=\"cpu" + n + "\" height=\"100\" />");
-                    document.getElementById('cpu' + n).width = window.innerWidth - windowGap;
+                    $("cpu" + n)[0].width = window.innerWidth - windowGap;
                 }
             }
         }
@@ -49,7 +49,7 @@ function get_cpu_use() {
         if (needs_init == 1) {
             $(window).resize(function () {
                 for (var n = 0; n < cpu_info.length; n++) {
-                    document.getElementById('cpu' + n).width = window.innerWidth - windowGap;
+                    $("cpu" + n)[0].width = window.innerWidth - windowGap;
                 }
             });
         }
