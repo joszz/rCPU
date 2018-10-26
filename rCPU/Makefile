@@ -10,8 +10,8 @@ $(TARGET): $(CFILES) $(RESOURCES)
 index.h: index.html
 	xxd -i index.html index.h
 
-smoothie-min.h: smoothie-min.js
-	xxd -i smoothie-min.js smoothie-min.h
+smoothie.h: smoothie.js
+	xxd -i smoothie.js smoothie.h
 
 code-min.h: code-min.js
 	xxd -i code-min.js code-min.h
