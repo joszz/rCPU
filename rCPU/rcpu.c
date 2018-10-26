@@ -10,7 +10,7 @@
 #include "code-min.h"
 #include "index.h"
 #include "jquery-3-3-1-min.h"
-#include "smoothie-min.h"
+#include "smoothie.h"
 
 void* polling_thread(void *args);
 void send_response(struct hitArgs *args, char*, char*, http_verb);
