@@ -13,8 +13,8 @@ index.h: index.html
 smoothie.h: smoothie.js
 	xxd -i smoothie.js smoothie.h
 
-code-min.h: code-min.js
-	xxd -i code-min.js code-min.h
+code-min.h: code.js
+	xxd -i code.js code.h
 
 jquery-3-3-1-min.h: jquery-3-3-1-min.js
 	xxd -i jquery-3-3-1-min.js jquery-3-3-1-min.h

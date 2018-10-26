@@ -7,7 +7,7 @@
 #include "dwebsvr.h"
 
 // embedded resource files
-#include "code-min.h"
+#include "code.h"
 #include "index.h"
 #include "jquery-3-3-1-min.h"
 #include "smoothie.h"
@@ -182,11 +182,11 @@ void send_file_response(struct hitArgs *args, char *path, char *request_body, in
         write_header(args->socketfd, string_chars(response), index_html_len);
         write(args->socketfd, index_html, index_html_len);
     }
-    else if (path_ends_with(path, "code-min.js"))
+    else if (path_ends_with(path, "code.js"))
     {
         string_add(response, "text/javascript");
-        write_header(args->socketfd, string_chars(response), code_min_js_len);
-        write(args->socketfd, code_min_js, code_min_js_len);
+        write_header(args->socketfd, string_chars(response), code_js_len);
+        write(args->socketfd, code_js, code_js_len);
     }
     else if (path_ends_with(path, "smoothie.js"))
     {
