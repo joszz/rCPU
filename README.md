@@ -39,7 +39,7 @@ The html and javascript files are embedded in the executable.  Each resource fil
 ###Thanks
 
 I am using the following javascript libraries:
-- https://jquery.com/ jQuery (v2.1.0)
+- https://jquery.com/ jQuery (v3.5.0)
 - https://github.com/joewalnes/smoothie/ Smoothie Charts 
 
 Thanks to all involved with those projects.
