@@ -16,8 +16,8 @@ smoothie.h: smoothie.js
 code-min.h: code.js
 	xxd -i code.js code.h
 
-jquery-3-5-0-min.h: jquery-3-5-0-min.js
-	xxd -i jquery-3-5-0-min.js jquery-3-5-0-min.h
+jquery-3-5-1-min.h: jquery-3.5.1.min.js
+	xxd -i jquery-3.5.1.min.js jquery-3-5-1-min.h
 
 vocore: $(CFILES) $(RESOURCES)
 	export STAGING_DIR=$$PWD; \
