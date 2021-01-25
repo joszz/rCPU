@@ -5,7 +5,7 @@ $(function () {
     $("#status").text("");
     document.getElementById('cpu0').width = window.innerWidth - windowGap;
     get_cpu_use();
-    setInterval("get_cpu_use()", 1000);
+    setInterval(get_cpu_use, 1000);
 
     var timeline = new SmoothieChart(
   	{
