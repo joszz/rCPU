@@ -18,6 +18,9 @@ code-min.h: code.min.js
 
 jquery-3-5-1-min.h: jquery-3.5.1.min.js
 	xxd -i jquery-3.5.1.min.js jquery-3-5-1-min.h
+	
+styles.h: styles.css
+	xxd -i styles.css styles.h
 
 vocore: $(CFILES) $(RESOURCES)
 	export STAGING_DIR=$$PWD; \

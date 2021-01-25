@@ -11,6 +11,7 @@
 #include "index.h"
 #include "jquery-3-5-1-min.h"
 #include "smoothie-min.h"
+#include "styles.h"
 
 void* polling_thread(void *args);
 void send_response(struct hitArgs *args, char*, char*, http_verb);
@@ -199,6 +200,12 @@ void send_file_response(struct hitArgs *args, char *path, char *request_body, in
         string_add(response, "text/javascript");
         write_header(args->socketfd, string_chars(response), jquery_3_5_1_min_js_len);
         write(args->socketfd, jquery_3_5_1_min_js, jquery_3_5_1_min_js_len);
+    }
+	else if (path_ends_with(path, "styles.css"))
+    {
+        string_add(response, "text/css");
+        write_header(args->socketfd, string_chars(response), styles_len);
+        write(args->socketfd, styles, styles_len);
     }
     else
     {
