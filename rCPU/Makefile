@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS=-pthread -std=gnu99
 CFILES=rcpu.c dwebsvr.c
-RESOURCES=index.h smoothie-min.h code-min.h jquery-3-5-1-min.h
+RESOURCES=index.h smoothie-min.h code-min.h jquery-3-5-1-min.h styles.h
 TARGET=rcpu
 
 $(TARGET): $(CFILES) $(RESOURCES)
