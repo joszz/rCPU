@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS=-pthread -std=gnu99
 CFILES=rcpu.c dwebsvr.c
-RESOURCES=index.h smoothie-min.h code-min.h jquery-3-5-1-min.h styles.h
+RESOURCES=index.h smoothie-min.h code-min.h jquery-3-5-1-min.h styles-min.h
 TARGET=rcpu
 
 $(TARGET): $(CFILES) $(RESOURCES)
@@ -19,8 +19,8 @@ code-min.h: code.min.js
 jquery-3-5-1-min.h: jquery-3.5.1.min.js
 	xxd -i jquery-3.5.1.min.js jquery-3-5-1-min.h
 	
-styles.h: styles.css
-	xxd -i styles.css styles.h
+styles-min.h: styles.min.css
+	xxd -i styles.min.css styles-min.h
 
 vocore: $(CFILES) $(RESOURCES)
 	export STAGING_DIR=$$PWD; \
