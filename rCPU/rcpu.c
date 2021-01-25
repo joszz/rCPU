@@ -185,13 +185,13 @@ void send_file_response(struct hitArgs *args, char *path, char *request_body, in
     else if (path_ends_with(path, "code.min.js"))
     {
         string_add(response, "text/javascript");
-        write_header(args->socketfd, string_chars(response), code_js_len);
+        write_header(args->socketfd, string_chars(response), code_min_js_len);
         write(args->socketfd, code_js, code_js_len);
     }
     else if (path_ends_with(path, "smoothie.min.js"))
     {
         string_add(response, "text/javascript");
-        write_header(args->socketfd, string_chars(response), smoothie_js_len);
+        write_header(args->socketfd, string_chars(response), smoothie_min_js_len);
         write(args->socketfd, smoothie_js, smoothie_js_len);
     }
     else if (path_ends_with(path, "jquery-3.5.1.min.js"))
