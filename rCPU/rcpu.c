@@ -204,8 +204,8 @@ void send_file_response(struct hitArgs *args, char *path, char *request_body, in
 	else if (path_ends_with(path, "styles.css"))
     {
         string_add(response, "text/css");
-        write_header(args->socketfd, string_chars(response), styles_len);
-        write(args->socketfd, styles, styles_len);
+        write_header(args->socketfd, string_chars(response), styles_css_len);
+        write(args->socketfd, styles, styles_css_len);
     }
     else
     {
