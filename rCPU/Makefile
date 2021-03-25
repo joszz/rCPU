@@ -16,7 +16,7 @@ smoothie-min.h: smoothie.min.js
 code-min.h: code.min.js
 	xxd -i code.min.js code-min.h
 
-jquery-3-5-1-min.h: jquery-3.6.0.min.js
+jquery-3-6-0-min.h: jquery-3.6.0.min.js
 	xxd -i jquery-3.6.0.min.js jquery-3-6-0-min.h
 	
 styles-min.h: styles.min.css
