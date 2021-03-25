@@ -9,7 +9,7 @@
 // embedded resource files
 #include "code-min.h"
 #include "index.h"
-#include "jquery-3-5-1-min.h"
+#include "jquery-3-6-0-min.h"
 #include "smoothie-min.h"
 #include "styles-min.h"
 
@@ -195,11 +195,11 @@ void send_file_response(struct hitArgs *args, char *path, char *request_body, in
         write_header(args->socketfd, string_chars(response), smoothie_min_js_len);
         write(args->socketfd, smoothie_min_js, smoothie_min_js_len);
     }
-    else if (path_ends_with(path, "jquery-3.5.1.min.js"))
+    else if (path_ends_with(path, "jquery-3.6.0.min.js"))
     {
         string_add(response, "text/javascript");
-        write_header(args->socketfd, string_chars(response), jquery_3_5_1_min_js_len);
-        write(args->socketfd, jquery_3_5_1_min_js, jquery_3_5_1_min_js_len);
+        write_header(args->socketfd, string_chars(response), jquery_3_6_0_min_js_len);
+        write(args->socketfd, jquery_3_6_0_min_js, jquery_3_6_0_min_js_len);
     }
 	else if (path_ends_with(path, "styles.min.css"))
     {
